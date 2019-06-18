@@ -1,4 +1,4 @@
-# Hunny - WS
+# wind-app - WS
 
 This is a Ruby on Rails application.
 
@@ -12,26 +12,10 @@ This is a Ruby on Rails application.
 
 ## Badges
 
-> Master
-
-[![build status](https://git.amalgama.co/hunny/hunny-ws/badges/master/build.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/master)
-[![coverage report](https://git.amalgama.co/hunny/hunny-ws/badges/master/coverage.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/master)
-
 > Production
 
-[![build status](https://git.amalgama.co/hunny/hunny-ws/badges/production/build.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/production)
-[![coverage report](https://git.amalgama.co/hunny/hunny-ws/badges/production/coverage.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/production)
-
-> Staging
-
-[![build status](https://git.amalgama.co/hunny/hunny-ws/badges/staging/build.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/staging)
-[![coverage report](https://git.amalgama.co/hunny/hunny-ws/badges/staging/coverage.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/staging)
-
-> Development
-
-[![build status](https://git.amalgama.co/hunny/hunny-ws/badges/development/build.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/development)
-[![coverage report](https://git.amalgama.co/hunny/hunny-ws/badges/development/coverage.svg)](https://git.amalgama.co/hunny/hunny-ws/commits/development)
-
+[![pipeline status](https://gitlab.com/agrimbautomas/wind-app/badges/master/pipeline.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/master)
+[![coverage report](https://gitlab.com/agrimbautomas/wind-app/badges/master/coverage.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/master)
 
 ## Docker
 
@@ -43,15 +27,13 @@ cp config/secrets.yml.example config/secrets.yml
 cp config/settings/example.yml config/settings/development.yml
 cp .env.dev .env
 cp Dockerfile.dev Dockerfile
-docker-compose build && docker-compose run hunny_ws bundle
-docker-compose run hunny_ws rake db:create db:migrate db:seed
-docker-compose up -d && docker attach hunny_ws
+docker-compose build && docker-compose run wind-app_ws bundle
+docker-compose run wind-app_ws rake db:create db:migrate db:seed
+docker-compose up -d && docker attach wind-app_ws
 ```
 
 And that's it :-)
 
-If the last step fails just do it again. The first time MySql starts is slow, so the migration command
-may be executed before the database is ready.
 
 ## Deploy
 
