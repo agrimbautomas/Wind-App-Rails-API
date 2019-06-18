@@ -13,10 +13,8 @@ This is a Ruby on Rails application.
 ## Badges
 
 > Production
-
-[![pipeline status](https://gitlab.com/agrimbautomas/wind-app/badges/master/pipeline.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/master)
-[![coverage report](https://gitlab.com/agrimbautomas/wind-app/badges/master/coverage.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/master)
-
+[![pipeline status](https://gitlab.com/agrimbautomas/wind-app/badges/production/pipeline.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/production)
+[![coverage report](https://gitlab.com/agrimbautomas/wind-app/badges/production/coverage.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/production)
 ## Docker
 
 The project is Docker-ready. To start developing we just need to have Docker installed.

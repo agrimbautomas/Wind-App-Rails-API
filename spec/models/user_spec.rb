@@ -16,9 +16,37 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should respond_to(:email) }
+  it { should validate_presence_of(:email) }
+
+  describe 'create user' do
+    let(:create_user) { User.create email: 'valid@app.com', password: 'password' }
+
+    context 'with correct email and password' do
+      it 'the creation is valid' do
+        expect{create_user}.to change{User.count}.by (1)
+      end
+		end
+
+    context 'with incorrect email' do
+      it 'the creation is invalid' do
+        expect(
+            User.create email: 'invalid-app.com', password: 'password'
+        ).not_to be_valid
+      end
+    end
+
+    context 'with incorrect password' do
+      it 'the creation is invalid' do
+        expect(
+            User.create email: 'valid@app.com', password: nil
+        ).not_to be_valid
+      end
+    end
+  end
+
 end
