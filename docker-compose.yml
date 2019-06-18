@@ -1,0 +1,23 @@
+version: '3.6'
+services:
+  wind-app:
+    container_name: wind-app_ws
+    build: .
+    stdin_open: ${DOCKERTTY}
+    tty: ${DOCKERTTY}
+    volumes:
+      - ./:/usr/src/wind-app
+      - ~/.ssh:/root/.ssh
+      - ./public/system:/usr/src/app/public/system
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+  db:
+    container_name: wind-app_db
+    image: mysql:5.7.22
+    environment:
+      MYSQL_ROOT_PASSWORD: sinclair
+    volumes:
+      - ./db/data:/var/lib/mysql

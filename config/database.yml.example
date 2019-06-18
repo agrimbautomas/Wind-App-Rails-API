@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  timeout: 5000
+  encoding: utf8
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'sinclair' } %>
+  host: <%= ENV.fetch('MYSQL_HOST') { 'db' } %>
+
+
+development:
+  <<: *default
+  database: wind-app_dev
+
+staging:
+  <<: *default
+  database: wind-app_stg
+
+test:
+  <<: *default
+  database: wind-app_test

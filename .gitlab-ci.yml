@@ -1,0 +1,29 @@
+image: ruby:2.5.1
+
+services:
+   - mysql:5.7.19
+
+variables:
+   RAILS_ENV: "test"
+   COVERAGE: "true"
+   MYSQL_HOST: "mysql"
+   MYSQL_PASSWORD: "sinclair"
+   MYSQL_ROOT_PASSWORD: "sinclair"
+   MYSQL_DATABASE: "wind-app_test"
+
+before_script:
+   - cp config/database.yml.example config/database.yml
+   - cp config/secrets.yml.example  config/secrets.yml
+   - mkdir -p reports/
+   - bundle install --jobs 4 --deployment
+
+test:
+   script:
+      - bundle exec rake db:drop db:create db:migrate
+      - bundle exec rake app:reports
+   tags:
+      - docker
+   coverage: '/\(\d+.\d+\%\) covered/'
+   artifacts:
+      paths:
+         - reports/

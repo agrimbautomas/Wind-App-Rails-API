@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+
+<h3 style="width: 100%;
+    margin: 2rem auto 0px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    font-family: monospace;">
+  Hola Hola
+  <% if @subscriber.name.present? %>
+    <%= @subscriber.name %>
+  <% end %>
+  !
+</h3>
+<h3 style="width: 100%;
+    margin: 2rem auto 0px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    font-family: monospace;">
+  Hay algo nuevo
+  <strong>gratis</strong>
+  para vos Ratita...
+</h3>
+
+<br>
+<br>
+
+<h1 style="width: 100%;
+    margin: 2rem auto 0px;
+    text-align: center;">
+  Se trata de
+  <a target="_blank" href="<%= @entry.site_link %>">
+    <%= @entry.title %>
+  </a>
+</h1>
+
+<br>
+<br>
+
+<h4 style="width: 100%;
+    margin: 2rem auto 0px;
+    text-align: center;">
+  <a target="_blank" href="https://ingresar.lanacion.com.ar/ingresar/B/8/">
+    Logueate a LANACION
+  </a>
+</h4>
+
+<br>
+<p>Hasta el próximo mail queridas ratitas...</p>
+
+</body>
+
+</html>

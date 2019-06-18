@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="es"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="es"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="es"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="es"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <!-- WEB FONTS : use %7C instead of | (pipe) -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" type="text/css" href="http://static.glanacion.com/v1/integracion-registracion/css/ln.registracion.integracion.v2.min.css?c4ca4238a0b923820dcc509a6f75849b">
+
+  <link href="/resources/css/styles.min.css?c4ca4238a0b923820dcc509a6f75849b" rel="stylesheet" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+  <style>
+    .pantalla-completa.login .contenedor-modal iframe {
+      width: 760px;
+      height: 520px;
+    }
+
+    .agotado-proximamente {
+      font-size: 12pt;
+    }
+  </style>
+</head>
+<body class="smoothscroll enable-animation">
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-GHV6"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- wrapper -->
+<div id="wrapper">
+  <div id="header" class="header-md dark clearfix">
+    <!-- TOP NAV -->
+    <header id="topNav">
+      <div class="container">
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- BUTTONS -->
+        <ul class="pull-right nav nav-pills nav-second-main">
+
+        </ul>
+        <!-- /BUTTONS -->
+        <!-- Logo -->
+        <a class="logo pull-left" href="/">
+          <img src="/black/imagenes/logo_negativo.png" alt="" style="height: 100%"/>
+        </a>
+        <div class="navbar-collapse pull-right nav-main-collapse collapse">
+          <nav class="nav-main">
+            <ul id="topMain" class="nav nav-pills nav-main">
+              <li>
+                <a href="http://contactoclub.lanacion.com.ar/atencion-socios/ayuda.html">
+                  Atención al socio
+                </a>
+              </li>
+              <li>
+                <a href="/como-participar">
+                  ¿Cómo participar?
+                </a>
+              </li>
+              </li>
+              <li id="request-card-online">
+                <a href="http://contactoclub.lanacion.com.ar/campania/experiencia_black">
+                  <button type="button" class="btn btn-default">PEDI TU TARJETA ON LINE</button>
+                </a>
+              </li>
+              <li id="user">
+                <a href="https://ingresar.lanacion.com.ar/ingresar/B/8/?aHR0cDovL2V4cGVyaWVuY2lhc2JsYWNrLmxhbmFjaW9uLmNvbS5hcg==">
+                  <i class="fa fa-user"></i>
+                  <span class="font-montserratregular">Ingresar</span>
+                </a>
+              </li>
+              <li id="mis-reservas" style="display:none;">
+                <a href="/mis-reservas">
+                  <span class="font-montserratregular">Mis Reservas</span>
+                </a>
+              </li>
+              <li class="salir" id="logout" style="display:none;">
+                <a onclick="logout();" href="javascript:void(0);">Salir</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- /Top Nav -->
+  </div>
+  <!--CONTENT-->
+  <style>
+    @media (min-width: 767px) {
+      .blog-post-item figure.margin-bottom-10 {
+        /*height: 169px;*/
+        overflow-y: hidden;
+      }
+    }
+
+    @media (min-width: 1150px) {
+      .banner-container {
+        position: relative;
+        overflow: hidden;
+        height: 332px;
+      }
+
+      .banner-container .banner {
+        position: absolute;
+        top: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        right: -9999px;
+        margin: auto;
+      }
+
+      .banner-container .banner-small {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1150px) {
+      .banner-container {
+      }
+
+      .banner-container .banner-small {
+        width: 100%;
+      }
+
+      .banner-container .banner {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      section div.row > div {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .blog-post-item h2 {
+      letter-spacing: 0;
+      font: normal 18px/24px suecaslabsemibold, georgia;
+      margin-bottom: 10px;
+      color: #00033A;
+      height: 60px;
+      overflow: hidden;
+      line-height: 24px;
+      padding-top: 10px;
+    }
+
+    .blog-post-item > a.hvr-rectangle-out:visited {
+      color: white;
+    }
+
+    .blink_me {
+      animation: blinker 2s linear infinite;
+    }
+
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    a.current {
+      background-color: #00adef;
+    }
+
+    .techo {
+      border-top: 1px solid #00033A;
+      text-align: center;
+      position: relative;
+      height: 40px;
+      margin: 40px 0 10px;
+    }
+
+    .techo strong {
+      display: inline-block;
+      margin: auto;
+      background: #00033A;
+      color: #fff;
+      top: -21px;
+      position: relative;
+      padding: 9px 15px 8px;
+      font: normal 20px montserratregular;
+      text-transform: uppercase;
+    }
+
+    .techo strong.outofstock {
+      background-color: white;
+      color: #00033A;
+      border: 1px solid #00033A;
+    }
+
+    .row-title {
+      margin-bottom: 15px;
+    }
+
+    .row-title h3 {
+      border-bottom: 2px solid black;
+    }
+
+    .blog-post-item-title {
+      display: none;
+    }
+
+    .blog-post-item .col-md-1 figure,
+    .blog-post-item .col-md-2 figure {
+      height: 277px;
+      overflow-y: hidden;
+    }
+
+    @media (max-width: 992px) {
+      .blog-post-item-title {
+        display: block;
+      }
+
+      .blog-post-item-title h3 {
+        font-size: 16px;
+        border-bottom: 2px solid black;
+      }
+
+      .row-title {
+        display: none;
+      }
+    }
+
+    .experience-container {
+      margin-bottom: 10px;
+    }
+
+    .blog-post-item .img-responsive.bordered {
+      border: 1px solid #ccc;
+    }
+
+    .blog-post-item {
+      margin-bottom: 0;
+    }
+
+    .more-margin {
+      margin-bottom: 0;
+    }
+
+    .blog-post-item figure a,
+    .blog-post-item > div a {
+      display: block;
+      position: relative;
+      border: 1px solid #ccc;
+    }
+
+    .blog-post-item figcaption {
+      border-bottom: 50px solid rgba(0, 174, 239, 0.75);
+      border-left: 15px solid transparent;
+      border-right: 0 solid transparent;
+      height: 0;
+      width: auto;
+      display: inline-block;
+      padding: 0 10px;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: 2;
+      color: #fff;
+      font: normal 18px/47px suecaslabsemibold, georgia;
+    }
+
+    .blog-post-item figure:hover a .item-hover,
+    .blog-post-item > div:hover a .item-hover {
+      opacity: 1;
+    }
+
+    .blog-post-item figure a .item-hover,
+    .blog-post-item > div a .item-hover {
+      opacity: 0;
+      filter: alpha(opacity=0);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .blog-post-item figure a .item-hover h3,
+    .blog-post-item > div a .item-hover h3 {
+      top: 50%;
+      display: block;
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      color: #ffffff;
+      z-index: 4;
+    }
+
+    .blog-post-item.col-md-6.col-sm-6 figure a .item-hover h3 {
+      font-size: 30px;
+    }
+
+    .blog-post-item .overlay {
+      z-index: 3;
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    div.divider {
+      margin: 0;
+    }
+
+    a.btn.btn-default.experiencias-anteriores {
+      background: white;
+      border-radius: 0px;
+      text-transform: uppercase;
+      font-size: 14px;
+      display: inline-block;
+      line-height: 22px;
+      border: 2px solid black;
+    }
+
+    a.btn.btn-default.experiencias-anteriores:hover {
+      color: rgb(30, 51, 68);
+    }
+  </style>
+  <div class="banner-container">
+    <a href="http://especiales.lanacion.com.ar/clubln/black/index.html"><img class="banner" src="/black/imagenes/black_exp_slide2.jpg"></a>
+    <a href="http://especiales.lanacion.com.ar/clubln/black/index.html"><img class="banner-small" src="/black/imagenes/black_exp_slide2-small.jpg"></a>
+  </div>
+  <!-- /REVOLUTION SLIDER -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <p style="font-size: 18px;margin-bottom:50px;text-align: justify;">Club LA NACION BLACK te invita a vivir
+            experiencias únicas sin cargo. Vas a poder disfrutar de obras teatrales, avant-premières, backstages, meet &
+            greets, eventos deportivos, degustaciones de vinos y mucho más.</p>
+        </div>
+      </div>
+
+
+      <div class="row title-container">
+        <div class="col-md-12">
+          <div class="techo"><a href="#"><strong class="today">Hoy</strong></a></div>
+        </div>
+      </div>
+
+      <div class="row experience-container">
+        <div class="col-md-12 col-lg-12 col-sm-12 hidden-xs">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="blog-post-item">
+                <div>
+                  <a href="/experiencia/14765">
+                    <img class="img-responsive" src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181026/8FE2F53C-E890-AEA4-7ACD-2386DBB459D5.jpg" alt="">
+                    <figcaption>Reservá ahora</figcaption>
+                    <span class="item-hover">
+                                                    <h3>Reservá ahora</h3>
+                                                    <span class="overlay dark-5"></span>
+                                                </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-post-item col-md-6 col-sm-6" data-condition="today">
+              <h2><a href="/experiencia/14765">Somos Campeones 30/Oct 19.30hs</a></h2>
+              <div class="hidden-xs">
+                <div style="text-align:justify">
+                  <div>Marco, un entrenador profesional de basquet, se encuentra un d&iacute;a en medio de una crisis
+                    personal, entrenando a un equipo compuesto por personas con discapacidad. Lo que comienza como un
+                    problema se acaba convirtiendo en una lecci&oacute;n de vida.&nbsp;
+                  </div>
+
+                  <div>&nbsp;</div>
+
+                  <div>- V&aacute;lido por 2 (dos) entradas para la funci&oacute;n de cine de<strong> &quot;Somos
+                    Campeones&quot;</strong><br/>
+                    - <strong>Cine Atlas Alcorta </strong>(Jer&oacute;nimo Salguero 3172,&nbsp; CABA)<br/>
+                    - El<strong>&nbsp;30 de Octubre de 2018 a las 19.30hs</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blog-post-item col-xs-12 visible-xs" data-condition="today">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14765">
+              <img class="img-responsive <br />
+<b>Notice</b>:  Undefined variable: rows in <b>/var/www/woowup/woowup_minisites/minisite-lanacion/views/home.php</b> on line <b>252</b><br />
+" src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181026/8FE2F53C-E890-AEA4-7ACD-2386DBB459D5.jpg" alt="">
+              <figcaption>Reservá ahora</figcaption>
+
+              <span class="item-hover">
+                                        <h3>Reservá ahora</h3>
+                                        <span class="overlay dark-5"></span>
+                                    </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14765">Somos Campeones 30/Oct 19.30hs</a></h2>
+        </div>
+      </div>
+      <div class="row title-container">
+        <div class="col-md-12">
+          <div class="techo"><a href="#"><strong class="this_week">Esta Semana</strong></a></div>
+        </div>
+      </div>
+
+
+      <div class="row experience-container ">
+        <div class="blog-post-item col-lg-6 col-md-6 col-sm-6" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14746">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181023/ABB25D0F-DA25-178B-A3EE-2B83D13F7D66.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14746">Evento Halloween - Mundo Cartoon 30/Oct 17.30hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-6 col-md-6 col-sm-6" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14767">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181026/3CF541AB-CA09-CF77-58EF-6EFBDDF545C9.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14767">La Bomba de Tiempo 05/Nov 19.00hs</a></h2>
+        </div>
+      </div>
+
+
+      <div class="row experience-container ">
+        <div class="blog-post-item col-lg-6 col-md-6 col-sm-6" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14756">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/921F66F1-9A65-4094-66AC-B5D222D3DD59.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14756">Salvajes 02/Nov 23.15hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-6 col-md-6 col-sm-6" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14775">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181026/B41DF32D-274B-E95E-7CE0-60F7BA47712A.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14775">Roger Waters - Us + Them 10/Nov </a></h2>
+        </div>
+      </div>
+
+
+      <div class="row experience-container ">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14753">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/EA971730-CD4C-ED47-E9BF-3B0FC5215F1D.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14753">Doble o Nada 01/Nov 21.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14750">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181024/DF67ED3C-BA52-F905-0878-EFAC3A68BBC6.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14750">El Vestidor 31/Oct 20.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14763">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/A9705D36-32AF-87B0-27E6-15955642CCDB.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14763">Zambayonny 02/Nov 23.45hs</a></h2>
+        </div>
+      </div>
+
+
+      <div class="row experience-container more-margin">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14774">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181026/7C0EFB42-85B9-F889-E444-C90279FF629C.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14774">Innovacion 31/Oct 09.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14761">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/782E638C-6CDB-0FDD-7A1D-E7F18DE8F93E.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14761">Sebastian Wainraich - Fragil 02/Nov 22.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="this_week">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14754">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/35D34D05-B5A0-4DF7-65F2-D5E14B5D293E.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14754">Doble o Nada 02/Nov 21.00hs</a></h2>
+        </div>
+      </div>
+
+      <div class="row experience-container hidden-xs" style="margin-bottom:40px;">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+      </div>
+      <div class="row experience-container visible-xs" style="margin-bottom:40px;">
+        <div class="col-xs-12">
+          <div class="divider"></div>
+        </div>
+      </div>
+
+
+      <div class="row title-container">
+        <div class="col-md-12">
+          <div class="techo"><a href="#"><strong class="coming">Próximamente</strong></a></div>
+        </div>
+      </div>
+
+
+      <div class="row experience-container ">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="coming">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14751">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181024/2413EE0F-D6B7-5E4C-D6C4-31F0C75DB4FB.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14751">El Vestidor 01/Nov 20.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="coming">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14759">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/262D80E2-97A9-8716-E799-072E82B222DF.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14759">Niní en el Aire 03/Nov 20.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="coming">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14762">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/13092605-CB8B-A65B-FB6A-40B37E9416EB.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14762">Sebastian Wainraich - Fragil 03/Nov 22.00hs</a></h2>
+        </div>
+      </div>
+
+
+      <div class="row experience-container more-margin">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="coming">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14755">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/365E50BA-0CB2-D13A-1441-71FDAA398998.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14755">Doble o Nada 03/Nov 20.30hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="coming">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14752">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181024/F7C61BEC-420E-1BF6-CA1C-22309162257F.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14752">El Vestidor 04/Nov 19.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="coming">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14760">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181025/F1C255B6-6432-3A83-36A0-6ED9DA0FBF90.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14760">Niní en el Aire 06/Nov 19.00hs</a></h2>
+        </div>
+      </div>
+
+      <div class="row experience-container hidden-xs" style="margin-bottom:40px;">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+      </div>
+      <div class="row experience-container visible-xs" style="margin-bottom:40px;">
+        <div class="col-xs-12">
+          <div class="divider"></div>
+        </div>
+      </div>
+
+
+      <div class="row title-container">
+        <div class="col-md-12">
+          <div class="techo"><a href="#"><strong class="outofstock">Agotado</strong></a></div>
+        </div>
+      </div>
+
+
+      <div class="row experience-container ">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14721">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181022/8ED12C57-9341-57D1-C789-6A232E1D465C.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14721">Ballet Argentino de la Plata 31/Oct 20.30hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14739">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181017/8668BF69-C2AF-0006-C69C-5BD3DBBD1BD5.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14739">Sebastian Wainraich - Fragil 26/Oct 22.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14732">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181017/F132DDBD-F9AF-7847-2EDB-D9032F7CF2E5.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14732">Moldavsky Sigue Suelto 27/Oct 20.00hs</a></h2>
+        </div>
+      </div>
+
+
+      <div class="row experience-container ">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14766">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181026/9552BFDA-33CA-7165-F223-7ABFB8262481.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14766">Niní en el Aire 28/Oct 19.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14733">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181017/023505A6-9AB1-F659-4355-A8DBF9046D04.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14733">Moldavsky Sigue Suelto 27/Oct 22.30hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14743">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181022/DEF6344B-B1AA-0F90-0EEE-5D6FD5436505.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14743">Juampi Gonzalez - Soltero 27/Oct 23.55hs</a></h2>
+        </div>
+      </div>
+
+
+      <div class="row experience-container ">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14693">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181011/91D1DCA0-015D-35F2-9163-1FD122F901B8.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14693">El Vio­li­nis­ta en el Te­ja­do 25/Oct 20.30hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14697">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181011/392833C3-269D-DAD6-AC3A-8C51721C0764.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14697">Doble o Nada 27/Oct 20.30hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14731">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181017/EA73EAE8-D34A-B3A8-0085-2660B9B3D15E.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14731">Moldavsky Sigue Suelto 26/Oct 22.30hs</a></h2>
+        </div>
+      </div>
+
+
+      <div class="row experience-container more-margin">
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14735">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181017/F3A2452C-6699-388B-539B-7611B37683A8.jpg" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14735">Niní en el Aire 27/Oct 20.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14740">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181017/F11618D5-2D46-1F95-364F-FF9C96779492.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14740">Sebastian Wainraich - Fragil 27/Oct 22.00hs</a></h2>
+        </div>
+        <div class="blog-post-item col-lg-4 col-md-4 col-sm-4" data-condition="outofstock">
+          <figure class="margin-bottom-10">
+            <a href="/experiencia/14694">
+              <img class="img-responsive " src="http://pics.woowup.com/q_auto:low/http://uploads.cdn.woowup.com/20181011/DA1DCE25-B320-8989-C28B-14A215B4A8C5.png" alt="">
+
+              <span class="item-hover">
+                                                <h3>Conocé más</h3>
+                                                <span class="overlay dark-5"></span>
+                                            </span>
+            </a>
+          </figure>
+          <h2><a href="/experiencia/14694">El Vio­li­nis­ta en el Te­ja­do 27/Oct 22.00hs</a></h2>
+        </div>
+      </div>
+
+      <div class="row experience-container hidden-xs" style="margin-bottom:40px;">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="divider"></div>
+        </div>
+      </div>
+      <div class="row experience-container visible-xs" style="margin-bottom:40px;">
+        <div class="col-xs-12">
+          <div class="divider"></div>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin-top:35px;">
+        <div class="col-md-12 col-sm-12 text-center">
+          <div align="center">
+            <!--<a href="https://ingresar.lanacion.com.ar/ingresar/B/8/aHR0cDovL2V4cGVyaWVuY2lhc2JsYWNrLmxhbmFjaW9uLmNvbS5hcg==" style="text-decoration:none; ""><td align="center"><table align="center" border="0" cellpadding="0" cellspacing="0" style="border:none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: -1pt; mso-table-rspace: -1pt; border-collapse: collapse !important; width:300px; -moz-border-radius:60px;
+            -webkit-border-radius:60px; border-radius:60px;">
+                    <tr>
+                      <td align="center">
+                       <div style="height: auto; padding: 1em; background-color: #a44933; border-radius: 60px; height: auto; color: #ffffff; text-align: center; font-family: Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight:bold">ingresar ahora</div>
+                      </td>
+                    </tr>
+                </table>
+              </td>
+          </a>
+      -->
+            <a href="/experiencias-anteriores" style="text-decoration:none">
+              <td align="center">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" style="border:none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: -1pt; mso-table-rspace: -1pt; border-collapse: collapse !important; width:300px; -moz-border-radius:60px;
+                    -webkit-border-radius:60px; border-radius:60px;">
+                  <tr>
+                    <td align="center">
+                      <div style="height: auto; padding: 1em; background-color: #a44933; border-radius: 60px; height: auto; color: #ffffff; text-align: center; font-family: Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight:bold"><!-Mirá
+                        las experiencias ya vividas por nuestros socios->Experiencias ya vividas
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- / -->
+  <!-- FOOTER -->
+  <footer id="footer" class="footer-light">
+    <div class="copyright">
+      <div class="container">
+        <ul class="pull-right nomargin list-inline mobile-block" id="footer-links">
+          <li><a href="/bases-y-condiciones">Bases y condiciones</a></li>
+          <li><a href="http://contactoclub.lanacion.com.ar/atencion-socios/ayuda.html">Atención al socio</a></li>
+
+        </ul>
+        Copyright 2018 S.A. LA NACION © | Todos los derechos reservados
+      </div>
+    </div>
+  </footer>
+  <!-- /FOOTER -->
+
+  <iframe width="0" height="0" id="ln-logout" name="iLogout" style="display:none;">&nbsp;</iframe>
+
+  <!-- SCROLL TO TOP -->
+  <a href="#" id="toTop"></a>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="inner">
+      <span class="loader"></span>
+    </div>
+  </div><!-- /PRELOADER -->
+  <script type="text/javascript">var plugin_path = '/black/assets/plugins/';</script>
+  <!-- JAVASCRIPT FILES -->
+  <script type="text/javascript" src="/black/assets/plugins/jquery/jquery-2.1.4.min.js?c4ca4238a0b923820dcc509a6f75849b"></script>
+
+  <script type="text/javascript" src="/resources/js/scripts.min.js?c4ca4238a0b923820dcc509a6f75849b"></script>
+
+
+</div> <!-- END WRAPPER-->
+<script>
+	$(document).ready(function () {
+		getLoggedUser();
+      /*
+       $("#user a:contains('Ingresar')").attr("onclick", 'LN.Render.Modal("login","https://registracion.lanacion.com.ar/ingresar-modal-externo?pagina=http://experienciasblack.lanacion.com.ar/herramientas/comunidades/closeModalRegistracion.html");return false;');
+       */
+	});
+
+	var sitioSeguroRegistracion = "https://registracion.lanacion.com.ar";
+	var largoNick = 16;
+    /*window.LN = window.LN || {};
+     LN.Usuario = LN.Usuario || {};
+     LN.Usuario.validoUsuarioGuid = false;
+     if (document.location.href.indexOf('servicios.lanacion.com.ar') > 0) {
+     sitioOrigen = "http://servicios.lanacion.com.ar"
+     }*/
+
+	function getLoggedUser() {
+		if (LeerCookie('cookieLogin') != '') {
+			console.log("esta cookieLogin");
+			$.post('/register-user', function (data) {
+				if (data.registration_status == 'ok') {
+					console.log("esta registration_status");
+					//var nick = LeerCookie('usuario%5Fdetalle%5Fnick');
+					var email = LeerCookie('usuarioemail');
+                  /*if (nick.length > largoNick) {
+                   nick = nick.substring(0, largoNick);
+                   nick = nick + "...";
+                   }*/
+
+					$("#user").html("<a onclick='redirectToUserProfile();'>" + data.user.first_name + ' ' + data.user.last_name + "</a>");
+					$("#mis-reservas").show();
+					$("#request-card-online").hide();
+					$("#logout").show();
+					//LN.Usuario.validoUsuarioGuid = true;
+
+					if ($("form#register-form input#email").length && $("form#register-form input#email").val() == '') {
+						if (!data.user.email.match(/@noemail.com/i)) {
+							$("form#register-form input#email").val(data.user.email);
+						}
+						$("form#register-form input#first_name").val(data.user.first_name);
+						$("form#register-form input#last_name").val(data.user.last_name);
+						$("form#register-form input#dni").val(data.user.customform.dni);
+					}
+				} else {
+					console.log("no esta registration_status");
+					$("#request-card-online").show();
+					$("#logout").hide();
+				}
+			}, 'json');
+		} else {
+			console.log("no esta cookieLogin");
+			$("#request-card-online").show();
+			$("#logout").hide();
+		}
+	}
+
+	function LeerCookie(n) {
+		var i = "" + document.cookie, u = i.indexOf(n), t, r;
+		return u == -1 || n == "" ? "" : (t = i.indexOf(";", u),
+			r = i.indexOf("&", u),
+		(t > r && r != -1 || t == -1 && r != -1) && (t = r),
+		t == -1 && (t = i.length),
+			unescape(i.substring(u + n.length + 1, t)))
+	}
+
+	function redirectToUserProfile() {
+		top.window.location.href = "https://micuenta.lanacion.com.ar/mis-datos";
+	}
+
+	function logout() {
+		$("#ln-logout").attr('src', "https://ingresar.lanacion.com.ar/logout/logout.html?pagina=http://experienciasblack.lanacion.com.ar/herramientas/comunidades/closeModalLogout.html");
+	}
+</script>
+<script type="text/javascript">window.NREUM || (NREUM = {});
+NREUM.info = {
+	"beacon": "bam.nr-data.net",
+	"licenseKey": "6ce48617f9",
+	"applicationID": "52783840",
+	"transactionName": "Z1EEYxFZXhFYW0QKWl4bM0UKF1kMXV1ITUVYRA==",
+	"queueTime": 0,
+	"applicationTime": 319,
+	"atts": "SxYHFVlDTR8=",
+	"errorBeacon": "bam.nr-data.net",
+	"agent": ""
+}</script>
+</body>
+</html>
