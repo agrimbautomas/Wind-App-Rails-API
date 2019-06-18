@@ -1,4 +1,4 @@
-class wind-appController < ApplicationController
+class HomeController < ApplicationController
 
 	def sample
 	end

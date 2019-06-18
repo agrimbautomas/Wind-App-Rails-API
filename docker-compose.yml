@@ -1,6 +1,6 @@
 version: '3.6'
 services:
-  wind-app:
+  app:
     container_name: wind-app_ws
     build: .
     stdin_open: ${DOCKERTTY}
