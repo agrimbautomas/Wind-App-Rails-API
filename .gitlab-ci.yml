@@ -1,19 +1,19 @@
 image: ruby:2.5.1
 
 services:
-   - mysql:5.7.19
+   - postgres:latest
 
 variables:
    RAILS_ENV: "test"
    COVERAGE: "true"
-   MYSQL_HOST: "mysql"
-   MYSQL_PASSWORD: "sinclair"
-   MYSQL_ROOT_PASSWORD: "sinclair"
-   MYSQL_DATABASE: "wind-app_test"
+   POSTGRES_HOST: "postgres"
+   POSTGRES_PASSWORD: "sinclair"
+   DEFAULT_FROM: "no-repy@wind-app.com"
 
 before_script:
    - cp config/database.yml.example config/database.yml
    - cp config/secrets.yml.example  config/secrets.yml
+   - cp config/settings/example.yml config/settings/test.yml
    - mkdir -p reports/
    - bundle install --jobs 4 --deployment
 
