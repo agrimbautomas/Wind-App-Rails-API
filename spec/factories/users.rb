@@ -21,5 +21,9 @@ FactoryBot.define do
   factory :user do
     sequence( :password ) { |n| "password-#{n}" }
     sequence( :email ) { |n| "example#{n}@example.com" }
+
+    factory :user_without_email do
+      email { nil }
+    end
   end
 end

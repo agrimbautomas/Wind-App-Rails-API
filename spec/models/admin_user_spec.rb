@@ -20,5 +20,21 @@
 require 'rails_helper'
 
 RSpec.describe AdminUser, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should respond_to(:email) }
+  it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
+
+  describe '#create!' do
+    context 'with correct params' do
+
+      let(:valid_user) { create(:admin_user) }
+      it { expect(valid_user).to be_valid }
+
+    end
+
+  end
+
+
+
 end

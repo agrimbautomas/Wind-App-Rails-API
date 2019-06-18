@@ -1,6 +1,7 @@
 #Coverage
 require 'simplecov'
 SimpleCov.start do
+  project_name 'Wind App'
   coverage_dir 'test_output/coverage/'
 
   add_filter 'app/admin'
@@ -17,7 +18,6 @@ SimpleCov.start do
   add_filter 'log'
   add_filter 'public'
   add_filter 'reports'
-  add_filter 'site-images'
   add_filter 'spec'
   add_filter 'vendor'
   add_filter 'test_output'
