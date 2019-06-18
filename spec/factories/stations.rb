@@ -10,6 +10,6 @@
 
 FactoryBot.define do
   factory :station do
-    
+    sequence(:name) { |n| "Statition #{n}" }
   end
 end
