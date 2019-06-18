@@ -1,9 +1,9 @@
-role :app, %w{deploy@174.129.91.31}
-role :web, %w{deploy@174.129.91.31}
-role :db,  %w{deploy@174.129.91.31}
+role :app, %w{deploy@wind.amalgama.co}
+role :web, %w{deploy@wind.amalgama.co}
+role :db,  %w{deploy@wind.amalgama.co}
 
 set :deploy_to, '/srv/rails/wind-app'
 
-server '174.129.91.31', user: 'deploy', roles: %w{web app}
+server 'wind.amalgama.co', user: 'deploy', roles: %w{web app}
 set :rails_env, 'production'
 set :branch, 'production'
