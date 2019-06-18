@@ -1,11 +1,10 @@
 default: &default
-  adapter: mysql2
-  timeout: 5000
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
-  username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'sinclair' } %>
-  host: <%= ENV.fetch('MYSQL_HOST') { 'db' } %>
+  username: <%= ENV.fetch('POSTGRES_USER') { 'postgres' } %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') { 'sinclair' } %>
+  host: <%= ENV.fetch('POSTGRES_HOST') { 'db' } %>
 
 
 development:

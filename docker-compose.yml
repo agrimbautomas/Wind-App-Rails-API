@@ -16,8 +16,10 @@ services:
 
   db:
     container_name: wind-app_db
-    image: mysql:5.7.22
+    image: postgres:9.6.4
     environment:
-      MYSQL_ROOT_PASSWORD: sinclair
+      - POSTGRES_PASSWORD=sinclair
     volumes:
-      - ./db/data:/var/lib/mysql
+      - ./db/data:/var/lib/postgresql/data
+    env_file:
+      - '.env'

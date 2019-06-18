@@ -1,4 +1,4 @@
-namespace :wind-app do
+namespace :wind_app do
 	desc 'Scrape Site'
 	task :entries => :environment do
 		5.times do

@@ -54,8 +54,6 @@ gem 'whenever', :require => false
 
 gem 'listen', '~> 3.0.5'
 
-gem 'mysql2', '~> 0.5.2'
-
 gem 'rubocop', require: false
 gem 'rubycritic', require: false
 gem 'web-console', '>= 3.3.0'
@@ -63,6 +61,7 @@ gem 'web-console', '>= 3.3.0'
 group :development, :test do
 	gem 'byebug'
 	gem 'spring'
+	gem 'spring-watcher-listen', '~> 2.0.0'
 
 	gem 'capistrano', '~> 3.1'
 	gem 'capistrano-rails', '~> 1.1'
@@ -85,9 +84,7 @@ group :development, :test do
 	gem 'pry'
 	gem 'pry-rails'
 end
-
-group :development do
-	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-	gem 'spring'
-	gem 'spring-watcher-listen', '~> 2.0.0'
-end
+#
+# group :development do
+# 	gem 'spring-watcher-listen', '~> 2.0.0'
+# end
