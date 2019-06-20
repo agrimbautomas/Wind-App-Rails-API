@@ -15,8 +15,9 @@ class PostRequest < Interactor
 	end
 
 	def execute
-		validate_uri
-		validate_headers
+		# validate_uri
+		# validate_headers
+
 		exec_request
 	end
 

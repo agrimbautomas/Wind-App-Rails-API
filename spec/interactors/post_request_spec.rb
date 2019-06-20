@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'contexts/for_models'
 
-RSpec.shared_examples 'PostRequest is succesful with match' do
+RSpec.shared_examples 'PostRequest is succesful' do
 	it 'request shows response' do
 		expect(response).to be_a String
 	end
@@ -25,7 +25,7 @@ RSpec.describe PostRequest do
 	context 'with correct params' do
 
 		context 'with a valid endpoint URI' do
-			include_examples 'PostRequest is succesful with match'
+			include_examples 'PostRequest is succesful'
 		end
 
 		context 'with an empty URI' do
