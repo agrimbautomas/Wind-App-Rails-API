@@ -3,7 +3,7 @@ require 'contexts/for_models'
 
 RSpec.shared_examples 'GetCarpData is succesful' do
 	it 'request shows JSON response' do
-		expect(response).to be_a JSON
+		expect(response).to be_a Hash
 	end
 end
 

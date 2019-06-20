@@ -30,9 +30,10 @@ class GetCarpData < Interactor
 	end
 
 	def cookie
+		# Renew to request
 		CGI::Cookie.new(
 				'name' => 'mariweb_session',
-				'value' => 'c10e047655c87b01dbad8c20c8b63019',
+				'value' => 'c562c179a7949d6508442172af2547e4',
 				'path' => '/',
 				'domain' => '.meteo.comisionriodelaplata.org',
 				'httponly' => true,
