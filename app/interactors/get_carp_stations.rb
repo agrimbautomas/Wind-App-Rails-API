@@ -5,8 +5,4 @@ class GetCarpStations < GetCarpData
 		@logs["stations"]
 	end
 
-	# def parse_logs logs
-	# 	Savelogs.save(logs: logs)
-	# end
-
 end

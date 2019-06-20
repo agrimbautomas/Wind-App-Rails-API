@@ -12,7 +12,7 @@ class GetCarpData < Interactor
 	end
 
 	def execute
-		response = PostRequest.to(uri: uri, headers: headers)
+		response = PostRequest.to(uri: uri, params: params, headers: headers)
 		@logs = clean_response response
 	end
 
@@ -20,6 +20,10 @@ class GetCarpData < Interactor
 
 	def uri
 		URI.parse(Settings.scraped_url) + @endpoint
+	end
+
+	def params
+		'c=telemetry%2FupdateTelemetry&s=0.8553524135681556'
 	end
 
 	def headers

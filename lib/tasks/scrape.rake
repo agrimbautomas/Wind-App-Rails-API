@@ -7,8 +7,12 @@ namespace :scrape do
 		end
 	end
 
-	task :wind_logs => :environment do
+	task :stations => :environment do
 		GetCarpStations.default
+	end
+
+	task :wind_logs => :environment do
+		GetCarpLogs.default
 	end
 
 end

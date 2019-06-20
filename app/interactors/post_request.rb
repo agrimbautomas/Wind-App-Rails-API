@@ -4,13 +4,14 @@ require 'cgi'
 
 class PostRequest < Interactor
 
-	def self.to(uri:, headers:)
-		scrape_site = new(uri: uri, headers: headers)
+	def self.to(uri:, params:, headers:)
+		scrape_site = new(uri: uri, params: params, headers: headers)
 		scrape_site.execute
 	end
 
-	def initialize(uri:, headers:)
+	def initialize(uri:, params:, headers:)
 		@uri = uri
+		@params = params
 		@headers = headers
 	end
 
@@ -28,10 +29,8 @@ class PostRequest < Interactor
 		https.use_ssl = true
 
 		req = Net::HTTP::Post.new(@uri.path, @headers)
-		# req['c'] = 'telemetry%2FupdateTelemetry'
-		# req['s'] = '0.8553524135681556'
 
-		req.body = 'c=telemetry%2FupdateTelemetry&s=0.8553524135681556'
+		req.body = @params
 		res = https.request(req)
 
 		res.body
