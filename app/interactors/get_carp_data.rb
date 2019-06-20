@@ -12,15 +12,38 @@ class GetCarpData < Interactor
 	end
 
 	def execute
-		response = ScrapeSite.by(endpoint: @endpoint)
+		response = PostRequest.to(uri: uri, headers: headers)
 		@logs = clean_response response
 	end
 
 	private
 
+	def uri
+		URI.parse(Settings.scraped_url) + @endpoint
+	end
+
+	def headers
+		{
+				'Cookie' => cookie.to_s,
+				'Content-Type' => 'application/x-www-form-urlencoded'
+		}
+	end
+
+	def cookie
+		CGI::Cookie.new(
+				'name' => 'mariweb_session',
+				'value' => 'c10e047655c87b01dbad8c20c8b63019',
+				'path' => '/',
+				'domain' => '.meteo.comisionriodelaplata.org',
+				'httponly' => true,
+				'expires' => Time.now + 1.year
+		)
+	end
+
 	def clean_response response
 		response.slice! 'OKdoneLoadingTelemetry|JSON**'
 		JSON.parse(response)
 	end
+
 
 end
