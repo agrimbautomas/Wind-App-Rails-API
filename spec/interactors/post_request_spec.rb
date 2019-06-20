@@ -16,10 +16,11 @@ end
 RSpec.describe PostRequest do
 
 	let(:uri) { URI.parse(Settings.scraped_url) + 'ecsCommand.php' }
+	let(:params) { '' }
 	let(:headers) { { 'Content-Type' => 'application/x-www-form-urlencoded' } }
 
 	let(:response) {
-		PostRequest.to(uri: uri, headers: headers)
+		PostRequest.to(uri: uri, params: params, headers: headers)
 	}
 
 	context 'with correct params' do
