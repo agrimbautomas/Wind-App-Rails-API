@@ -21,7 +21,7 @@
 
 #At every minute past every hour from 7 through 23.
 # Every minute form 7hs to 23hs
-every '* 07-23 * * *' do
-  rake "scraper:entries", :environment => 'production'
+every 6.minutes do
+  rake "scrape:wind_logs", :environment => 'production'
 end
 
