@@ -5,9 +5,9 @@ if Rails.env.development?
 
 	AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-	Station.create!(name: 'Carmelo')
-	Station.create!(name: 'Colonia')
-	Station.create!(name: 'Conchillas')
-	Station.create!(name: 'Norden')
+	Station.create!(name: 'Carmelo', slug: 'carmelo')
+	Station.create!(name: 'Colonia', slug: 'colonia')
+	Station.create!(name: 'Conchillas', slug: 'conchillas')
+	Station.create!(name: 'Norden', slug: 'norden')
 
 end

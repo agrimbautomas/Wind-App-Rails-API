@@ -9,6 +9,7 @@ ActiveAdmin.register Station do
 		selectable_column
 		id_column
 		column :name
+		column :slug
 		actions
 	end
 

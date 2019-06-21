@@ -12,7 +12,7 @@ namespace :scrape do
 	end
 
 	task :wind_logs => :environment do
-		GetCarpLogs.default
+		GetCarpNordenLogs.default
 	end
 
 end

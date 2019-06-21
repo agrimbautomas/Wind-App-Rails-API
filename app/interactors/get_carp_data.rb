@@ -47,6 +47,7 @@ class GetCarpData < Interactor
 
 	def clean_response response
 		response.slice! 'OKdoneLoadingTelemetry|JSON**'
+		response.slice! 'OKshowStationTelemetry|JSON**'
 		JSON.parse(response)
 	end
 
