@@ -24,7 +24,7 @@ class GetCarpNordenLogs < GetCarpData
 		log_date = parse_log_date log
 		speed = log.last.to_f.round(1)
 		direction = get_direction
-		WindLog.where(speed: speed, direction: direction, registered_date: log_date, station: @station).first_or_create
+		WindLog.create!(speed: speed, direction: direction, registered_date: log_date, station: @station) unless WindLog.exists?(registered_date: log_date, station: @station)
 	end
 
 	def wind_logs
