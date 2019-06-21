@@ -1,5 +1,7 @@
 ActiveAdmin.register WindLog do
 
+	actions :index
+
 	index do
 		column :station
 		column :speed
