@@ -7,7 +7,9 @@ ActiveAdmin.register WindLog do
 		column :station
 		column :speed
 		column :gust
-		column :direction
+		column :direction do |log|
+			"#{log.direction}°"
+		end
 		column :registered_date
 	end
 
