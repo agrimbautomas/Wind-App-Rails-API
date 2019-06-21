@@ -1,4 +1,5 @@
 ActiveAdmin.register WindLog do
+	menu priority: 5
 
 	actions :index
 

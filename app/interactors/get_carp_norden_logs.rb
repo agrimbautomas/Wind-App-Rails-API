@@ -23,7 +23,8 @@ class GetCarpNordenLogs < GetCarpData
 	def store_wind_log log
 		log_date = parse_log_date log
 		speed = log.last.to_f.round(1)
-		WindLog.where(speed: speed, direction: 120.0, registered_date: log_date, station: @station).first_or_create
+		direction = get_direction
+		WindLog.where(speed: speed, direction: direction, registered_date: log_date, station: @station).first_or_create
 	end
 
 	def wind_logs
@@ -56,6 +57,14 @@ class GetCarpNordenLogs < GetCarpData
 	def parse_log_date log
 		clean_time = log.first.to_s.chomp('000')
 		DateTime.strptime(clean_time, '%s')
+	end
+
+	def get_direction
+		encoded_table = @logs['wind']['latest']
+		decoded_table = URI.decode(encoded_table)
+		result = Nokogiri::HTML(decoded_table)
+		value = result.css('.rowAcolA').last.text
+		value.to_f
 	end
 
 end
