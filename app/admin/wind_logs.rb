@@ -4,7 +4,7 @@ ActiveAdmin.register WindLog do
 	actions :index
 
 
-	config.sort_order = 'registered_date_asc'
+	config.sort_order = 'registered_date_desc'
 	config.filters = false
 	config.current_filters = false
 
