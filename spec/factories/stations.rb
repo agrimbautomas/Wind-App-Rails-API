@@ -11,6 +11,7 @@
 
 FactoryBot.define do
   factory :station do
-    sequence(:name) { |n| "Statition #{n}" }
+    sequence(:name) { |n| "Station #{n}" }
+    sequence(:slug) { |n| "statition#{n}" }
   end
 end

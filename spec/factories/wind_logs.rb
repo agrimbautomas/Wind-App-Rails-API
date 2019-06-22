@@ -17,7 +17,11 @@
 #
 
 FactoryBot.define do
-  factory :wind_log do
-    
-  end
+	factory :wind_log do
+		station
+		sequence(:speed) { rand(0.0..40.0).round(1) }
+		sequence(:gust) { rand(0.0..40.0).round(1) }
+		sequence(:direction) { rand(0.0..360.0).round(1) }
+		sequence(:registered_date) { Date.today }
+	end
 end

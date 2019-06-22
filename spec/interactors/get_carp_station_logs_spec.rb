@@ -1,14 +1,15 @@
 require 'rails_helper'
 require 'contexts/for_models'
 
-RSpec.shared_examples 'GetCarpStationLogs is succesful' do
-	it 'request shows JSON response' do
-		expect(response).to be_a Array
-		expect(response.first['name']).to be_a String
+RSpec.shared_examples 'GetCarpStationLogs raise error' do
+	it 'the interactor raises an error' do
+		expect { response }.to raise_error Error
 	end
 end
 
 RSpec.describe GetCarpStationLogs do
+
+	include_context 'create wind_log'
 
 	let(:response) {
 		GetCarpStationLogs.default
@@ -17,7 +18,7 @@ RSpec.describe GetCarpStationLogs do
 	context 'with correct params' do
 
 		context 'with a valid endpoint URI' do
-			include_examples 'GetCarpStationLogs is succesful'
+			#include_examples  'GetCarpData raise error'
 		end
 
 	end
