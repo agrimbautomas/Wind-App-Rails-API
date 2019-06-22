@@ -18,4 +18,12 @@ RSpec.describe Station, type: :model do
 	it { should allow_value(false).for(:name) }
 	it { should validate_length_of(:name).is_at_most(255) }
 
+	it { should respond_to(:slug) }
+	it { should validate_presence_of(:slug) }
+	it { should allow_value(false).for(:slug) }
+	it { should validate_length_of(:slug).is_at_most(255) }
+
+	it { should respond_to(:wind_logs) }
+	it { should have_many(:wind_logs) }
+
 end

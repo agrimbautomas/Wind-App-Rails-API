@@ -13,6 +13,9 @@ class Station < ApplicationRecord
 	validates :name, presence: true, allow_blank: false,
 			:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
 
+	validates :slug, presence: true, allow_blank: false,
+			:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
+
 	has_many :wind_logs
 
 end

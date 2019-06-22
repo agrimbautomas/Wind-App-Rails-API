@@ -19,5 +19,18 @@
 require 'rails_helper'
 
 RSpec.describe WindLog, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should respond_to(:speed) }
+  it { should validate_presence_of(:speed) }
+
+  it { should respond_to(:gust) }
+
+	it { should respond_to(:direction) }
+  it { should validate_presence_of(:direction) }
+
+  it { should respond_to(:registered_date) }
+
+  it { should respond_to(:station) }
+  it { should belong_to(:station) }
+
 end
