@@ -3,7 +3,6 @@ ActiveAdmin.register WindLog do
 
 	actions :index
 
-
 	config.sort_order = 'registered_date_desc'
 	config.filters = false
 	config.current_filters = false
@@ -12,7 +11,7 @@ ActiveAdmin.register WindLog do
 		Station.find_by_slug('norden').wind_logs.order('registered_date DESC')
 	end
 
-	scope(:colonia) do |log|
+	scope(:colonia) do
 		Station.find_by_slug('colonia').wind_logs.order('registered_date DESC')
 	end
 
@@ -29,6 +28,5 @@ ActiveAdmin.register WindLog do
 		end
 		column :registered_date
 	end
-
 
 end
