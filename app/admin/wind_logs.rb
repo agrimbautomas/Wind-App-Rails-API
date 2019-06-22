@@ -3,15 +3,17 @@ ActiveAdmin.register WindLog do
 
 	actions :index
 
+
+	config.sort_order = 'registered_date_asc'
 	config.filters = false
 	config.current_filters = false
 
 	scope(:norden) do
-		Station.find_by_slug('norden').wind_logs
+		Station.find_by_slug('norden').wind_logs.order('registered_date DESC')
 	end
 
 	scope(:colonia) do |log|
-		Station.find_by_slug('colonia').wind_logs
+		Station.find_by_slug('colonia').wind_logs.order('registered_date DESC')
 	end
 
 	index do

@@ -1,0 +1,15 @@
+// For active admin
+$am-font-sans: 'Roboto', sans-serif;
+
+$wind-blue: #286ec3;
+$wind-yellow: #EDE94C;
+
+$am-theme-primary: $wind-blue;
+$am-theme-accent: $wind-yellow;
+$am-theme-accent-fallback: #ff7547;
+
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap');
+
+@import "active_admin/mixins";
+@import "active_material";

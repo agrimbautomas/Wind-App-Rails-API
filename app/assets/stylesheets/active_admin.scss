@@ -1,21 +1,6 @@
-// SASS variable overrides must be declared before loading up Active Admin's styles.
-//
-// To view the variables that Active Admin provides, take a look at
-// `app/assets/stylesheets/active_admin/mixins/_variables.scss` in the
-// Active Admin source.
-//
-// For example, to change the sidebar width:
-// $sidebar-width: 242px;
-
 // Active Admin's got SASS!
-@import "active_admin/mixins";
-
-$theme-primary: #908f8f;
-$theme-accent: #7dd2f7;
-$theme-accent-fallback: #ff7547;
-
+@import "variables";
 @import "active_material";
-
 
 
 /****************************/
@@ -23,11 +8,48 @@ $theme-accent-fallback: #ff7547;
 /********** Charts **********/
 /****************************/
 /****************************/
+body.active_admin {
+  font-family: 'Josefin Sans', sans-serif;
+
+  .scopes {
+
+    ul.scope-default-group {
+      text-align: center;
 
 
-.admin_stats{
+      li.scope {
+        margin: 0px 2rem;
+        font-size: 1.1rem;
+
+        &.selected {
+          a {
+            color: #286ec3;
+            background-color: initial;
+          }
+        }
+
+        a {
+          padding: 1rem;
+          width: auto;
+          display: inline-block;
+
+          &:hover, &:focus{
+            color: #286ec3;
+            text-decoration: none;
+          }
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.admin_stats {
   .charts-container {
     background: white;
+
     .inner-cotainer {
       padding: 10px 3%;
     }
@@ -40,7 +62,7 @@ $theme-accent-fallback: #ff7547;
     box-shadow: none;
   }
 
-  #active_admin_content{
+  #active_admin_content {
     padding: 0px;
   }
 }
