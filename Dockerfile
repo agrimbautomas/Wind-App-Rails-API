@@ -1,5 +1,5 @@
 FROM ruby:2.5.3
-WORKDIR /usr/src/wind-app
+WORKDIR /usr/src/wind-api
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 ADD Gemfile $SRCPATH/Gemfile

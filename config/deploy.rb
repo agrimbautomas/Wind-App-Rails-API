@@ -1,5 +1,5 @@
 
-set :application, 'wind-app'
+set :application, 'wind-api'
 set :repo_url, 'git@gitlab.com:agrimbautomas/wind-app.git'
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')

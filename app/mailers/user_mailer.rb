@@ -1,4 +1,4 @@
 class UserMailer < ApplicationMailer
-	default from: 'wind-app@papensen.com'
+	default from: 'wind-api@papensen.com'
 
 end

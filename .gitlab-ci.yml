@@ -8,7 +8,7 @@ variables:
    COVERAGE: "true"
    POSTGRES_HOST: "postgres"
    POSTGRES_PASSWORD: "sinclair"
-   DEFAULT_FROM: "no-repy@wind-app.com"
+   DEFAULT_FROM: "no-repy@wind-api.com"
 
 before_script:
    - cp config/database.yml.example config/database.yml

@@ -1,4 +1,4 @@
-# wind-app - WS
+# wind-api - WS
 
 This is a Ruby on Rails application.
 
@@ -13,8 +13,8 @@ This is a Ruby on Rails application.
 ## Badges
 
 > Production
-[![pipeline status](https://gitlab.com/agrimbautomas/wind-app/badges/production/pipeline.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/production)
-[![coverage report](https://gitlab.com/agrimbautomas/wind-app/badges/production/coverage.svg)](https://gitlab.com/agrimbautomas/wind-app/commits/production)
+[![pipeline status](https://gitlab.com/agrimbautomas/wind-api/badges/production/pipeline.svg)](https://gitlab.com/agrimbautomas/wind-api/commits/production)
+[![coverage report](https://gitlab.com/agrimbautomas/wind-api/badges/production/coverage.svg)](https://gitlab.com/agrimbautomas/wind-api/commits/production)
 ## Docker
 
 The project is Docker-ready. To start developing we just need to have Docker installed.
@@ -25,9 +25,9 @@ cp config/secrets.yml.example config/secrets.yml
 cp config/settings/example.yml config/settings/development.yml
 cp .env.dev .env
 cp Dockerfile.dev Dockerfile
-docker-compose build && docker-compose run wind-app_ws bundle
-docker-compose run wind-app_ws rake db:create db:migrate db:seed
-docker-compose up -d && docker attach wind-app_ws
+docker-compose build && docker-compose run wind-api_ws bundle
+docker-compose run wind-api_ws rake db:create db:migrate db:seed
+docker-compose up -d && docker attach wind-api_ws
 ```
 
 And that's it :-)

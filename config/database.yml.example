@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: wind-app_dev
+  database: wind-api_dev
 
 staging:
   <<: *default
-  database: wind-app_stg
+  database: wind-api_stg
 
 test:
   <<: *default
-  database: wind-app_test
+  database: wind-api_test

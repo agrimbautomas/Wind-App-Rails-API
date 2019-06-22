@@ -1,12 +1,12 @@
 version: '3.6'
 services:
   app:
-    container_name: wind-app_ws
+    container_name: wind-api_ws
     build: .
     stdin_open: ${DOCKERTTY}
     tty: ${DOCKERTTY}
     volumes:
-      - ./:/usr/src/wind-app
+      - ./:/usr/src/wind-api
       - ~/.ssh:/root/.ssh
       - ./public/system:/usr/src/app/public/system
     ports:
@@ -15,7 +15,7 @@ services:
       - db
 
   db:
-    container_name: wind-app_db
+    container_name: wind-api_db
     image: postgres:9.6.4
     environment:
       - POSTGRES_PASSWORD=sinclair
