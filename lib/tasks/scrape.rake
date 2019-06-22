@@ -1,11 +1,5 @@
 namespace :scrape do
 	desc 'Scrape Site'
-	task :entries => :environment do
-		5.times do
-			# ScrapeSite.by(url: Settings.scraped_url)
-			# sleep(10.seconds)
-		end
-	end
 
 	task :stations => :environment do
 		GetCarpStations.default
@@ -13,6 +7,15 @@ namespace :scrape do
 
 	task :wind_logs => :environment do
 		GetCarpNordenLogs.default
+		GetCarpColoniaLogs.default
+	end
+
+	task :norden_logs => :environment do
+		GetCarpNordenLogs.default
+	end
+
+	task :colonia_logs => :environment do
+		GetCarpColoniaLogs.default
 	end
 
 end
