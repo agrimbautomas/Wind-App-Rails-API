@@ -10,8 +10,21 @@
 #
 
 FactoryBot.define do
-  factory :station do
-    sequence(:name) { |n| "Station #{n}" }
-    sequence(:slug) { |n| "statition#{n}" }
-  end
+	factory :station do
+		sequence(:name) { |n| "Station #{n}" }
+		sequence(:slug) { |n| "statition#{n}" }
+
+
+		trait :norden do
+			name { "Norden" }
+			slug { "norden" }
+		end
+
+		trait :colonia do
+			name { "Colonia" }
+			slug { "colonia" }
+		end
+
+	end
+
 end
