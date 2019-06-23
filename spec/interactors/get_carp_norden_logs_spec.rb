@@ -31,6 +31,8 @@ RSpec.describe GetCarpNordenLogs do
 		context 'with a valid endpoint URI' do
 			before { GetCarpNordenLogs.default }
 			#include_examples 'GetCarpNordenLogs creates new wind logs'
+			# Pending
+			# Todo
 		end
 
 	end
