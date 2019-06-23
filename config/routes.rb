@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 
 	devise_for :users
 
-	root to: 'home#index'
-
-  get 'scrape', to: 'scraper#scrape'
-
+	root to: 'admin/wind_logs#index'
 
 end
