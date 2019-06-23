@@ -41,6 +41,9 @@ gem 'activeadmin', github: 'activeadmin'
 # url: https://github.com/activeadmin-plugins/active_material
 gem 'active_material', github: 'vigetlabs/active_material'
 
+# url: https://github.com/rails-api/active_model_serializers
+gem 'active_model_serializers', '~> 0.10.0'
+
 gem 'nokogiri'
 
 # For the js runtime

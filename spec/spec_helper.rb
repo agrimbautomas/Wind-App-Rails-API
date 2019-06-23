@@ -9,6 +9,9 @@ SimpleCov.start do
   add_filter 'app/helpers/application_helper.rb'
   add_filter 'app/models/ability.rb'
 
+  add_filter 'app/controllers/api/v1/api_controller.rb'
+  add_filter 'app/controllers/concerns/api_handlers.rb'
+
   add_filter 'bin'
   add_filter 'challenge'
   add_filter 'config'
