@@ -44,6 +44,12 @@ gem 'active_material', github: 'vigetlabs/active_material'
 # url: https://github.com/rails-api/active_model_serializers
 gem 'active_model_serializers', '~> 0.10.0'
 
+# url: https://github.com/cyu/rack-cors
+gem 'rack-cors', require: 'rack/cors'
+
+# https://dashboard.pusher.com/apps/
+gem 'pusher'
+
 gem 'nokogiri'
 
 # For the js runtime
