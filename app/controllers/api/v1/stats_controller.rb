@@ -8,7 +8,7 @@ class Api::V1::StatsController < Api::V1::ApiController
 	private
 
 	def best_wind_logs
-		Station.find_by_slug('norden').wind_logs.limit(3).order(registered_date: :desc)
+		GetWindStats.default
 	end
 
 	#

@@ -4,6 +4,7 @@ class GetCarpStationLogs < GetCarpData
 		super
 		save_wind_logs
 		save_gust_logs
+		UpdateStatsEvent.default
 		@logs
 	end
 
