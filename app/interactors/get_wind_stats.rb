@@ -1,6 +1,6 @@
 class GetWindStats < Interactor
 
-	def self.default
+	def self.serialized
 		get_wind_stats = new
 		get_wind_stats.execute
 	end
@@ -9,7 +9,13 @@ class GetWindStats < Interactor
 	end
 
 	def execute
-		Station.find_by_slug('colonia').wind_logs.limit(3).order(registered_date: :desc)
+		serialized_stats
 	end
 
+	def serialized_stats
+		{
+				:latest => Station.find_by_slug('colonia').wind_logs.last,
+				:per_hour => Station.find_by_slug('colonia').wind_logs.last
+		}
+	end
 end
