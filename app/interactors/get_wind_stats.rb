@@ -14,8 +14,8 @@ class GetWindStats < Interactor
 
 	def serialized_stats
 		{
-				:latest => Station.find_by_slug('colonia').wind_logs.last,
-				:per_hour => Station.find_by_slug('colonia').wind_logs.last
+				:latest => Station.find_by_slug('norden').wind_logs.last,
+				:per_hour => Station.find_by_slug('norden').wind_logs.last
 		}
 	end
 end
