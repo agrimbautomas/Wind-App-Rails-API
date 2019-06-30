@@ -30,7 +30,9 @@ ActiveAdmin.register WindLog do
 		column :direction do |log|
 			"#{log.direction}°"
 		end
-		column :registered_date
+		column :registered_date  do |log|
+			log.registered_date
+		end
 	end
 
 end

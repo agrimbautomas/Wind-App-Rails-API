@@ -7,19 +7,19 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module WindApp
-  class Application < Rails::Application
+	class Application < Rails::Application
 
 		config.load_defaults 5.2
 
 		config.web_console.development_only = false
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-	 config.time_zone = 'America/Argentina/Buenos_Aires'
+		# Settings in config/environments/* take precedence over those specified here.
+		# Application configuration should go into files in config/initializers
+		# -- all .rb files in that directory are automatically loaded.
+		config.time_zone = 'America/Argentina/Buenos_Aires'
 
-	 config.autoload_paths << "#{Rails.root}/app/interactors"
-	 config.autoload_paths << "#{Rails.root}/app/errors"
-	 config.autoload_paths << "#{Rails.root}/app/validators"
-  end
+		config.autoload_paths << "#{Rails.root}/app/interactors"
+		config.autoload_paths << "#{Rails.root}/app/errors"
+		config.autoload_paths << "#{Rails.root}/app/validators"
+	end
 end

@@ -12,9 +12,9 @@ class GetWindguruBsasLogs < GetWindguruData
 	def save_logs
 		time_logs.each_with_index do |log, e|
 
-			store_wind_log(e) if log.to_i >= current_hour and log.to_i < current_hour + 3
+			store_wind_log(e) if log.to_i >= current_hour and log.to_i < current_hour + 4
 
-			break if log.to_i > current_hour + 3
+			break if log.to_i > current_hour + 4
 		end
 	end
 
@@ -23,7 +23,12 @@ class GetWindguruBsasLogs < GetWindguruData
 		gust = gust_logs[index].to_f.round(1)
 		direction = direction_logs[index]
 		log_date = Time.now.change(hour: time_logs[index])
-		WindLog.create!(speed: speed, direction: direction, gust: gust, registered_date: log_date, station: station)
+
+		wind_log = WindLog.where(station: station, registered_date: log_date).first_or_initialize
+		wind_log.speed = speed
+		wind_log.gust = gust
+		wind_log.direction = direction
+		wind_log.save!
 	end
 
 	def station
