@@ -18,4 +18,8 @@ namespace :scrape do
 		GetCarpColoniaLogs.default
 	end
 
+	task :windguru_logs => :environment do
+		GetWindguruData.default
+	end
+
 end
