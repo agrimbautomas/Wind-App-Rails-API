@@ -9,5 +9,6 @@ if Rails.env.development?
 	Station.create!(name: 'Colonia', slug: 'colonia')
 	Station.create!(name: 'Conchillas', slug: 'conchillas')
 	Station.create!(name: 'Norden', slug: 'norden')
+	Station.create!(name: 'Windguru', slug: 'windguru')
 
 end

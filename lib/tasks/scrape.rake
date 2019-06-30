@@ -19,7 +19,7 @@ namespace :scrape do
 	end
 
 	task :windguru_logs => :environment do
-		GetWindguruData.default
+		GetWindguruBsasLogs.default
 	end
 
 end

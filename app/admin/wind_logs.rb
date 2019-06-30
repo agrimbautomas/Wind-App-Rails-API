@@ -15,6 +15,10 @@ ActiveAdmin.register WindLog do
 		Station.find_by_slug('colonia').wind_logs.order('registered_date DESC')
 	end
 
+	scope(:windguru) do
+		Station.find_by_slug('windguru').wind_logs.order('registered_date DESC')
+	end
+
 	index do
 		column :station
 		column :speed do |log|
