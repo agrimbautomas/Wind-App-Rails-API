@@ -22,7 +22,7 @@ class GetWindguruBsasLogs < GetWindguruData
 		speed = speed_logs[index].to_f.round(1)
 		gust = gust_logs[index].to_f.round(1)
 		direction = direction_logs[index]
-		log_date = Time.now.change(hour: time_logs[index])
+		log_date = Time.zone.now.change(hour: time_logs[index].to_i)
 
 		wind_log = WindLog.where(station: station, registered_date: log_date).first_or_initialize
 		wind_log.speed = speed
@@ -56,6 +56,6 @@ class GetWindguruBsasLogs < GetWindguruData
 	end
 
 	def current_hour
-		Time.zone.now.hour
+		Time.now.hour
 	end
 end
