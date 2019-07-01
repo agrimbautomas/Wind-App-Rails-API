@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 	devise_for :users
 
-	# root to: 'admin/wind_logs#index'
+	root to: 'admin/wind_logs#index'
 
 
 	scope module: 'api' do

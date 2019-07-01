@@ -18,6 +18,7 @@ Rails.application.configure do
 	# config.assets.css_compressor = :sass
 
 	# Do not fallback to assets pipeline if a precompiled asset is missed.
+	#config.assets.compile = false
 	config.assets.compile = true
 
 	# Don't care if the mailer can't send.
@@ -63,5 +64,7 @@ Rails.application.configure do
 	config.action_mailer.raise_delivery_errors = true # not needed but helpful
 	config.action_mailer.default_url_options = { host: '0.0.0.0', port: 3000 }
 	config.action_mailer.asset_host = "0.0.0.0:3000"
+
+	config.force_ssl = true
 
 end
