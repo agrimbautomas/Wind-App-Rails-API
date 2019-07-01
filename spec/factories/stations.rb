@@ -25,6 +25,11 @@ FactoryBot.define do
 			slug { "colonia" }
 		end
 
+		trait :windguru do
+			name { "Windguru" }
+			slug { "windguru" }
+		end
+
 	end
 
 end
