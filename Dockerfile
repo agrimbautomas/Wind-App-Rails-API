@@ -5,6 +5,7 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 ADD Gemfile $SRCPATH/Gemfile
 ADD Gemfile.lock $SRCPATH/Gemfile.lock
 
+#ENV RAILS_ENV production
 RUN bundle install
 COPY . $SRCPATH
 EXPOSE 3000
