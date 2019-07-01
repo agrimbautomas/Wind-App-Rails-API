@@ -22,7 +22,13 @@ class GetWindguruData < Interactor
 	end
 
 	def params
-		'?q=forecast&id_model=29&initstr=2019063006&id_spot=261&WGCACHEABLE=21600&cachefix=-34.58x-58.4x30'
+		query = '?q=forecast'
+		query += '&id_model=29'
+		query += '&initstr=' + DateTime.now.strftime('%Y%m%d') + '06'
+		query += '&id_spot=261'
+		query += '&WGCACHEABLE=21600'
+		query += '&cachefix=-34.58x-58.4x30'
+		query
 	end
 
 	def headers
