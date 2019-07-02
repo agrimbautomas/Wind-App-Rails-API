@@ -21,4 +21,31 @@ class WindLog < ApplicationRecord
 	belongs_to :station
 	validates_presence_of :speed, :direction
 
+	def self.forecasted_and_recorded
+		logs = []
+
+
+		self.recorded.each { |log| logs << log }
+
+	end
+
+	def self.recorded
+		norden = Station.find_by_slug('norden')
+		hours_before = Time.now - 8.hours
+
+		latest_logs = self.where('station_id = ? AND registered_date > ?', norden, hours_before)
+											.order('registered_date ASC')
+
+		hour_logs = []
+
+		latest_logs.each_with_index do |log, e|
+			index = log.registered_date.hour
+
+			(hour_logs[index] ||= []).push(log)
+		end
+
+
+		#hour_logs
+		latest_logs
+	end
 end

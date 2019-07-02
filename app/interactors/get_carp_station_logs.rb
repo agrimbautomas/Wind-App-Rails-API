@@ -39,7 +39,6 @@ class GetCarpStationLogs < GetCarpData
 
 		wind_log = WindLog.where(registered_date: log_date, station: station)
 		wind_log.update(gust: gust) if wind_log.exists?
-
 	end
 
 	def gust_logs
@@ -53,6 +52,7 @@ class GetCarpStationLogs < GetCarpData
 	def parse_log_date log
 		clean_time = log.first.to_s.chomp('000')
 		DateTime.strptime(clean_time, '%s')
+		#Time.zone.strptime(clean_time, '%s')
 	end
 
 	def get_direction
