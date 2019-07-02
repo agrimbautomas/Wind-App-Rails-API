@@ -1,5 +1,6 @@
 ActiveAdmin.register Station do
-	menu priority: 15
+	#menu priority: 15
+	menu false
 	permit_params :name
 
 	#

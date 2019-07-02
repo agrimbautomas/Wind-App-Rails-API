@@ -66,6 +66,10 @@ gem 'web-console', '>= 3.3.0'
 
 gem 'pg', '~> 0.18'
 
+gem 'ed25519'
+
+gem 'bcrypt_pbkdf'
+
 group :development, :test do
 	gem 'byebug'
 	gem 'spring'
