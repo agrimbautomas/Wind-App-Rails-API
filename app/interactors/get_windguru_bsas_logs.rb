@@ -1,5 +1,7 @@
 class GetWindguruBsasLogs < GetWindguruData
 
+	AMOUNT_OF_LOGS = 4
+
 	def execute
 		super
 		save_logs
@@ -10,14 +12,13 @@ class GetWindguruBsasLogs < GetWindguruData
 	private
 
 	def save_logs
-		#Start at 5 to skip first hours of windguru previous day
 		@stored = 0
 
 		time_logs.each_with_index do |log, i|
 
-			store_wind_log(i) if log_is_from_today?(i) and log_is_from_next_hours?(log)
+			store_wind_log(i) if log_is_recordable? log, i
 
-			break if @stored == 3
+			break if @stored == AMOUNT_OF_LOGS
 		end
 	end
 
@@ -25,7 +26,7 @@ class GetWindguruBsasLogs < GetWindguruData
 		speed = speed_logs[index].to_f.round(1)
 		gust = gust_logs[index].to_f.round(1)
 		direction = direction_logs[index]
-		log_date = Time.zone.now.change(hour: time_logs[index].to_i)
+		log_date = Time.zone.now.change(hour: time_logs[index].to_i, day: day_logs[index].to_i)
 
 		create_or_update_wind_log speed, gust, direction, log_date
 	end
@@ -44,8 +45,16 @@ class GetWindguruBsasLogs < GetWindguruData
 		day_logs[index].to_i == current_day
 	end
 
-	def log_is_from_next_hours? log
-		log.to_i >= current_hour and log.to_i < current_hour + 4
+	def log_is_from_tomorrow? index
+		day_logs[index].to_i == current_day + 1
+	end
+
+	def log_is_in_hour_range? log
+		log.to_i >= current_hour
+	end
+
+	def log_is_recordable? log, i
+		(log_is_from_today?(i) and log_is_in_hour_range?(log)) or log_is_from_tomorrow?(i)
 	end
 
 	def station
