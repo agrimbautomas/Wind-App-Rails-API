@@ -15,6 +15,7 @@ class GetWindguruData < Interactor
 	def execute
 		@logs = get_wind_logs
 		write_to_console 'SUCCESS' if @logs['fcst'].present?
+		@logs
 	end
 
 	private
