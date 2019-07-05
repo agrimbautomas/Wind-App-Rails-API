@@ -1,4 +1,5 @@
 class GetWindguruData < Interactor
+	include ApplicationHelper
 
 	def self.default
 		endpoint = 'iapi.php'
@@ -13,12 +14,13 @@ class GetWindguruData < Interactor
 
 	def execute
 		@logs = get_wind_logs
+		write_to_console 'SUCCESS' if @logs['fcst'].present?
 	end
 
 	private
 
 	def get_wind_logs
-		3.times do
+		4.times do
 			@response = GetRequest.to(uri: uri, params: params, headers: headers)
 			break if @response['fcst'].present?
 
@@ -51,6 +53,8 @@ class GetWindguruData < Interactor
 			DateTime.yesterday.strftime('%Y%m%d') + '18'
 		when 1
 			DateTime.now.strftime('%Y%m%d') + '06'
+		when 2
+			DateTime.now.strftime('%Y%m%d') + '00'
 		else
 			DateTime.now.strftime('%Y%m%d') + '18'
 		end
