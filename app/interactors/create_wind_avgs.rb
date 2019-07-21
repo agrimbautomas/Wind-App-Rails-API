@@ -34,13 +34,11 @@ class CreateWindAvgs < Interactor
 	end
 
 	def rounded_time previos_hours
-		(DateTime.now - previos_hours.hours).change({ min: 0 })
+		(DateTime.now.in_time_zone - previos_hours.hours).change({ min: 0 })
 	end
 
 	def wind_logs
-
-		WindLog.where('station_id = ? AND registered_date > ? AND registered_date < ?',
-				station, @hours_before_min, @hours_before_max)
+		WindLog.where('station_id = ? AND registered_date > ? AND registered_date < ?', station, @hours_before_min, @hours_before_max)
 	end
 
 	def avg_by column
