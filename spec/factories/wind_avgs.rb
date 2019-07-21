@@ -11,6 +11,10 @@
 
 FactoryBot.define do
   factory :wind_avg do
+    sequence(:speed) { rand(0.0..40.0).round(1) }
+    sequence(:gust) { rand(0.0..40.0).round(1) }
+    sequence(:direction) { rand(0.0..360.0).round(1) }
+    sequence(:registered_date) { Date.today }
     
   end
 end
