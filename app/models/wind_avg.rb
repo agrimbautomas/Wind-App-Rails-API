@@ -12,6 +12,7 @@
 class WindAvg < ApplicationRecord
 
 	validates_presence_of :speed, :direction, :registered_date
+	validates :speed, uniqueness: { scope: :registered_date }
 
 	before_save :round_values
 
