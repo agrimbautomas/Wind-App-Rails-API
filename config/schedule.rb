@@ -26,6 +26,6 @@ every 6.minutes do
 end
 
 every 60.minutes do
-  rake "scrape:windguru_logs", :environment => 'production'
+  rake "scrape:hourly_tasks", :environment => 'production'
 end
 

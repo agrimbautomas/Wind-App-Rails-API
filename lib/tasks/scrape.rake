@@ -1,13 +1,27 @@
 namespace :scrape do
 	desc 'Scrape Site'
 
-	task :stations => :environment do
-		GetCarpStations.default
-	end
+	#
+	# Schedules Tasks
+	#
 
 	task :wind_logs => :environment do
 		GetCarpNordenLogs.default
 		GetCarpColoniaLogs.default
+	end
+
+
+	task :hourly_tasks => :environment do
+		GetWindguruBsasLogs.default
+		CreateWindAvgs.default
+	end
+
+	#
+	# NOT Schedules Tasks
+	#
+
+	task :stations => :environment do
+		GetCarpStations.default
 	end
 
 	task :norden_logs => :environment do
