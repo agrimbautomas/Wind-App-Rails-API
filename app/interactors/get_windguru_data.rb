@@ -1,5 +1,6 @@
 class GetWindguruData < Interactor
 	include ApplicationHelper
+	SCRAPE_INTENTS = 5
 
 	def self.default
 		endpoint = 'iapi.php'
@@ -21,7 +22,7 @@ class GetWindguruData < Interactor
 	private
 
 	def get_wind_logs
-		4.times do
+		SCRAPE_INTENTS.times do
 			@response = GetRequest.to(uri: uri, params: params, headers: headers)
 			break if @response['fcst'].present?
 
@@ -56,9 +57,13 @@ class GetWindguruData < Interactor
 			DateTime.now.strftime('%Y%m%d') + '06'
 		when 2
 			DateTime.now.strftime('%Y%m%d') + '00'
+		when 3
+			DateTime.now.strftime('%Y%m%d') + '12'
 		else
 			DateTime.now.strftime('%Y%m%d') + '18'
 		end
+		# Increase SCRAPE_INTENTS if new combinations
+
 	end
 
 	def headers
