@@ -10,4 +10,8 @@
 #
 
 class WindAvg < ApplicationRecord
+
+	belongs_to :station
+	validates_presence_of :speed, :direction
+	
 end

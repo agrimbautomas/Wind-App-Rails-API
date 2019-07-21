@@ -22,5 +22,5 @@ RSpec.describe WindAvg, type: :model do
   it { should validate_presence_of(:direction) }
 
   it { should respond_to(:registered_date) }
-	
+
 end
