@@ -22,4 +22,8 @@ namespace :scrape do
 		GetWindguruBsasLogs.default
 	end
 
+	task :create_avgs => :environment do
+		CreateWindAvgs.default
+	end
+
 end

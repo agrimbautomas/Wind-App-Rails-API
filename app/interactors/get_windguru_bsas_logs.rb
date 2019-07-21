@@ -23,8 +23,8 @@ class GetWindguruBsasLogs < GetWindguruData
 	end
 
 	def store_wind_log index
-		speed = speed_logs[index].to_f.round(1)
-		gust = gust_logs[index].to_f.round(1)
+		speed = speed_logs[index].to_f
+		gust = gust_logs[index].to_f
 		direction = direction_logs[index]
 		log_date = Time.zone.now.change(hour: time_logs[index].to_i, day: day_logs[index].to_i)
 

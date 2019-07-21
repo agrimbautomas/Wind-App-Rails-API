@@ -8,7 +8,6 @@ ActiveAdmin.register WindAvg do
 	config.current_filters = false
 
 	index do
-		column :station
 		column :speed do |log|
 			"#{log.speed} kts"
 		end

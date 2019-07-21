@@ -19,7 +19,14 @@
 class WindLog < ApplicationRecord
 
 	belongs_to :station
-	validates_presence_of :speed, :direction
+	validates_presence_of :speed, :direction, :registered_date
+
+
+	def round_values
+		self.speed = self.speed.round(1) unless self.speed.nil?
+		self.gust = self.gust.round(1) unless self.gust.nil?
+		self.direction = self.direction.round(1) unless self.direction.nil?
+	end
 
 	def self.forecasted_and_recorded
 		logs = []

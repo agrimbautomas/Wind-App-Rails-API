@@ -11,7 +11,14 @@
 
 class WindAvg < ApplicationRecord
 
-	belongs_to :station
-	validates_presence_of :speed, :direction
-	
+	validates_presence_of :speed, :direction, :registered_date
+
+	before_save :round_values
+
+	def round_values
+		self.speed = self.speed.round(1) unless self.speed.nil?
+		self.gust = self.gust.round(1) unless self.gust.nil?
+		self.direction = self.direction.round(1) unless self.direction.nil?
+	end
+
 end
