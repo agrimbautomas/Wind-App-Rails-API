@@ -93,6 +93,27 @@ RSpec.describe WindLog, type: :model do
     context 'without registered_date' do
       let(:registered_date) { nil }
       include_examples 'creation is invalid'
+		end
+
+    context 'with large float speed' do
+      let(:speed) { 17.44444444444 }
+      it 'round float number' do
+        expect(create_wind_log.speed).to eq(17.4)
+      end
+    end
+
+    context 'with large float gust' do
+      let(:gust) { 3.2222221 }
+      it 'round float number' do
+        expect(create_wind_log.gust).to eq(3.2)
+      end
+		end
+
+    context 'with large float direction' do
+      let(:direction) { 181.9999 }
+      it 'round float number' do
+        expect(create_wind_log.direction).to eq(182.0)
+      end
     end
 
   end

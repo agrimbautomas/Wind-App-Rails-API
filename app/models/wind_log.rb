@@ -18,6 +18,8 @@
 
 class WindLog < ApplicationRecord
 
+	before_save :round_values
+
 	belongs_to :station
 	validates_presence_of :speed, :direction, :registered_date
 
