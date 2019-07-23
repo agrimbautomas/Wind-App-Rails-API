@@ -21,3 +21,7 @@ end
 RSpec.shared_context 'create wind_log' do
 	let!(:wind_log) { create :wind_log}
 end
+
+RSpec.shared_context 'create wind_avg' do
+	let!(:avg) { create :wind_avg}
+end

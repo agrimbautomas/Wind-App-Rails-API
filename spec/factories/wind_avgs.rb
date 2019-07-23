@@ -14,7 +14,6 @@ FactoryBot.define do
     sequence(:speed) { rand(0.0..40.0) }
     sequence(:gust) { rand(0.0..40.0) }
     sequence(:direction) { rand(0.0..360.0) }
-    sequence(:registered_date) { Date.today }
-    
+    sequence(:registered_date) { Time.zone.now }
   end
 end
