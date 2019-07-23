@@ -32,8 +32,6 @@ class WindLog < ApplicationRecord
 
 	def self.forecasted_and_recorded
 		logs = []
-
-
 		self.recorded.each { |log| logs << log }
 
 	end
