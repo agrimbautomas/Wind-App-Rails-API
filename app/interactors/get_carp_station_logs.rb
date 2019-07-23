@@ -20,6 +20,7 @@ class GetCarpStationLogs < GetCarpData
 		log_date = parse_log_date log
 		speed = log.last.to_f.round(1)
 		direction = get_direction
+
 		WindLog.create!(speed: speed, direction: direction, registered_date: log_date, station: station) unless WindLog.exists?(registered_date: log_date, station: station)
 	end
 
@@ -51,8 +52,9 @@ class GetCarpStationLogs < GetCarpData
 
 	def parse_log_date log
 		clean_time = log.first.to_s.chomp('000')
-		DateTime.strptime(clean_time, '%s')
-		#Time.zone.strptime(clean_time, '%s')
+		date = DateTime.strptime(clean_time, '%s')
+		# To make time in local timezone
+		date + 3.hours
 	end
 
 	def get_direction

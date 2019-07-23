@@ -14,7 +14,7 @@ module WindApp
 		config.web_console.development_only = false
 
 		# Production server runs in another timezone
-		config.time_zone = 'America/Argentina/Buenos_Aires' unless Rails.env.production?
+		config.time_zone = 'America/Argentina/Buenos_Aires'
 
 		config.autoload_paths << "#{Rails.root}/app/interactors"
 		config.autoload_paths << "#{Rails.root}/app/errors"

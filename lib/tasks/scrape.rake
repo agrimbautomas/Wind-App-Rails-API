@@ -12,8 +12,8 @@ namespace :scrape do
 
 
 	task :hourly_tasks => :environment do
-		GetWindguruBsasLogs.default
 		CreateWindAvgs.default
+		GetWindguruBsasLogs.default
 	end
 
 	#
