@@ -1,4 +1,5 @@
 class GetWindStats < Interactor
+	include TimeHelper
 
 	def self.serialized
 		get_wind_stats = new
@@ -31,11 +32,16 @@ class GetWindStats < Interactor
 	end
 
 	def current
-		serialize_log Station.find_by_slug('norden').wind_logs.last
+
+		latest_wind_log = Station.find_by_slug('norden').wind_logs.last
+		if latest_wind_log.registered_date.hour < current_hour
+			latest_wind_log = current_windguru_log unless current_windguru_log.nil?
+		end
+		serialize_log latest_wind_log
 	end
 
-	def windguru_logs
-		Station.find_by_slug('windguru').wind_logs
+	def windguru_upcomming_logs
+		windguru_logs
 				.where('registered_date > ?', Time.zone.now)
 				.limit(2)
 				.order('registered_date ASC')
@@ -50,13 +56,23 @@ class GetWindStats < Interactor
 	end
 	
 	def upcoming
-		logs_to_array windguru_logs
+		logs_to_array windguru_upcomming_logs
 	end
 
 	def logs_to_array wind_logs
 		logs = []
 		wind_logs.each { |log| logs << serialize_log(log) }
 		logs
+	end
+
+	def current_windguru_log
+		windguru_logs
+				.where('registered_date >= ? AND registered_date < ? ', Time.now - 1.hour, Time.now)
+				.first
+	end
+
+	def windguru_logs
+		Station.find_by_slug('windguru').wind_logs
 	end
 
 end
