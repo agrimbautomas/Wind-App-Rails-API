@@ -23,6 +23,7 @@ class GetWindStats < Interactor
 
 	def serialize_log log
 		{
+				id: log.id,
 				speed: log.speed,
 				gust: log.gust,
 				direction: log.direction,
