@@ -1,5 +1,6 @@
 class GetWindStats < Interactor
 	include TimeHelper
+	include StationsHelper
 
 	def self.serialized
 		get_wind_stats = new
@@ -14,6 +15,13 @@ class GetWindStats < Interactor
 	end
 
 	def serialized_stats
+		{
+				:current => current,
+				:logs => all_logs
+		}
+	end
+
+	def all_logs
 		logs = []
 		previous.each { |log| logs << log }
 		logs << current
@@ -51,11 +59,11 @@ class GetWindStats < Interactor
 	def avg_logs
 		WindAvg.all.limit(2).where('registered_date > ?', Time.now - 3.hours)
 	end
-	
+
 	def previous
 		logs_to_array avg_logs
 	end
-	
+
 	def upcoming
 		logs_to_array windguru_upcomming_logs
 	end
@@ -72,8 +80,5 @@ class GetWindStats < Interactor
 				.first
 	end
 
-	def windguru_logs
-		Station.find_by_slug('windguru').wind_logs
-	end
 
 end
