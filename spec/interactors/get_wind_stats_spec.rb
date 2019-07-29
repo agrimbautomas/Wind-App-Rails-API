@@ -55,7 +55,8 @@ RSpec.describe GetWindStats do
       end
 
       it 'matches current log hour with time' do
-        expect(response[:current][:registered_date].hour).to be_in([Time.zone.now.hour, (Time.zone.now - 1.hour).hour])
+        # expect(response[:current][:registered_date].hour).to be_in([Time.zone.now.hour, (Time.zone.now - 1.hour).hour])
+        expect(response[:current][:registered_date].hour).to eq(Time.zone.now.hour).or((Time.zone.now - 1.hour).hour)
       end
 
       it 'has a logs' do
@@ -66,7 +67,6 @@ RSpec.describe GetWindStats do
       it 'has 5 logs' do
         expect(response[:logs].count).to eq 5
       end
-
 
     end
 
