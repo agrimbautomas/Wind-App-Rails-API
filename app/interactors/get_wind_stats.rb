@@ -32,8 +32,8 @@ class GetWindStats < Interactor
 	def serialize_log log
 		{
 				id: log.id,
-				speed: log.speed,
-				gust: log.gust,
+				speed: log.speed_modified,
+				gust: log.gust_modified,
 				direction: log.direction,
 				hour: log.registered_date.hour,
 				registered_date: log.registered_date
@@ -42,7 +42,7 @@ class GetWindStats < Interactor
 
 	def current
 
-		latest_wind_log = Station.find_by_slug('norden').wind_logs.last
+		latest_wind_log = norden.wind_logs.last
 		if latest_wind_log.registered_date.hour < current_hour
 			latest_wind_log = current_windguru_log unless current_windguru_log.nil?
 		end
