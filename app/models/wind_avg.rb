@@ -17,7 +17,7 @@ class WindAvg < ApplicationRecord
 	validates :speed, uniqueness: { scope: :registered_date }
 
 	before_save :round_values
-	
+
 	def round_values
 		self.speed = self.speed.round(1) unless self.speed.nil?
 		self.gust = self.gust.round(1) unless self.gust.nil?

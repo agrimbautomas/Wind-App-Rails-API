@@ -45,7 +45,8 @@ RSpec.describe WindAvg, type: :model do
 				speed: speed,
 				gust: gust,
 				direction: direction,
-				registered_date: registered_date
+				registered_date: registered_date,
+				source: 'norden',
 		)
 	}
 
