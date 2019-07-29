@@ -12,14 +12,15 @@
 require 'rails_helper'
 
 
-RSpec.shared_examples 'creation is valid' do
-	it 'creation is valid' do
+RSpec.shared_examples 'avg creation is valid' do
+	it 'avg creation is valid' do
 		expect(create_wind_avg).to be_valid
 	end
 end
 
-RSpec.shared_examples 'creation is invalid' do
-	it 'creation is invalid' do
+RSpec.shared_examples 'avg creation is invalid' do
+	# noinspection RubyInterpreter
+	it 'avg creation is invalid' do
 		expect(create_wind_avg).not_to be_valid
 	end
 end
@@ -54,7 +55,7 @@ RSpec.describe WindAvg, type: :model do
 		let(:registered_date) { Time.now }
 
 		context 'with all parameters' do
-			include_examples 'creation is valid'
+			include_examples 'avg creation is valid'
 
 			it 'set the share_hash' do
 				valid_wind_avg = create_wind_avg
@@ -64,22 +65,22 @@ RSpec.describe WindAvg, type: :model do
 
 		context 'without the optional parameters' do
 			let(:gust) { nil }
-			include_examples 'creation is valid'
+			include_examples 'avg creation is valid'
 		end
 
 		context 'without speed' do
 			let(:speed) { nil }
-			include_examples 'creation is invalid'
+			include_examples 'avg creation is invalid'
 		end
 
 		context 'without direction' do
 			let(:direction) { nil }
-			include_examples 'creation is invalid'
+			include_examples 'avg creation is invalid'
 		end
 
 		context 'without registered_date' do
 			let(:registered_date) { nil }
-			include_examples 'creation is invalid'
+			include_examples 'avg creation is invalid'
 		end
 
 		context 'with large float speed' do

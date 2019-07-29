@@ -1,6 +1,6 @@
 class GetWindguruData < Interactor
 	include ApplicationHelper
-	SCRAPE_INTENTS = 5
+	SCRAPE_INTENTS = 8
 
 	def self.default
 		endpoint = 'iapi.php'
@@ -10,7 +10,9 @@ class GetWindguruData < Interactor
 
 	def initialize(endpoint:)
 		@endpoint = endpoint
-		@intent_counter = 0
+		@intents_counter = 1
+		@intent_hour_counter = 0
+		@intent_day_counter = 0
 	end
 
 	def execute
@@ -26,8 +28,10 @@ class GetWindguruData < Interactor
 			@response = GetRequest.to(uri: uri, params: params, headers: headers)
 			break if @response['fcst'].present?
 
-			@intent_counter += 1
+			@intents_counter += 1
 		end
+
+
 
 		clean_response @response
 	end
@@ -39,31 +43,26 @@ class GetWindguruData < Interactor
 	def params
 		query = '?q=forecast'
 		query += '&id_model=29'
-
-		query += '&initstr=' + initstr(@intent_counter)
+		query += '&initstr=' + initstr
 		query += '&id_spot=261'
 		query += '&WGCACHEABLE=21600'
 		query += '&cachefix=-34.58x-58.4x30'
 		query
 	end
 
-	def initstr intent
-		# Four expected conbinations of the code,
-		# from more probable to less probable
-		case intent
-		when 0
-			DateTime.yesterday.strftime('%Y%m%d') + '18'
-		when 1
-			DateTime.now.strftime('%Y%m%d') + '06'
-		when 2
-			DateTime.now.strftime('%Y%m%d') + '00'
-		when 3
-			DateTime.now.strftime('%Y%m%d') + '12'
-		else
-			DateTime.now.strftime('%Y%m%d') + '18'
-		end
-		# Increase SCRAPE_INTENTS if new combinations
 
+	def initstr
+		# Today and yesterday
+		day_matches = [0, -1]
+		hour_matches = %w(00 06 12 18)
+
+		day = DateTime.now + day_matches[@intent_day_counter]
+		match = day.strftime('%Y%m%d') + hour_matches[@intent_hour_counter]
+
+		@intent_day_counter += 1 if @intents_counter == 4
+		@intent_hour_counter = @intents_counter == 4 ? 0 : @intent_hour_counter += 1
+
+		match
 	end
 
 	def headers
