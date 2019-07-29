@@ -17,6 +17,9 @@ ActiveAdmin.register WindAvg do
 		column :direction do |log|
 			"#{log.direction}°"
 		end
+		column :source do |log|
+			log.source
+		end
 		column :registered_date  do |log|
 			log.registered_date
 		end

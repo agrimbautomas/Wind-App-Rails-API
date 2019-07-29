@@ -7,11 +7,12 @@
 #  gust            :float
 #  direction       :float            not null
 #  registered_date :datetime
+#  source          :string
 #
 
 class WindAvg < ApplicationRecord
 
-	validates_presence_of :speed, :direction, :registered_date
+	validates_presence_of :speed, :direction, :registered_date, :source
 	validates :speed, uniqueness: { scope: :registered_date }
 
 	before_save :round_values

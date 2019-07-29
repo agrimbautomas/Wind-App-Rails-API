@@ -26,21 +26,39 @@ class CreateWindAvgs < Interactor
     @hours_before_max = rounded_time(previous_hours - 1)
 
     if wind_logs.any?
-      speed_avg = avg_by(:speed)
-      gust_avg = wind_logs.average(:gust).to_f
-      direction_avg = wind_logs.average(:direction).to_f
+      create_norden_avg
     else
-      wind_log = windguru_logs.where('extract(hour from registered_date) = ?', @hours_before_min.hour).first
-      speed_avg = wind_log.speed unless wind_log.nil?
-      gust_avg = wind_log.gust unless wind_log.nil?
-      direction_avg = wind_log.direction unless wind_log.nil?
+      create_windguru_avg
     end
-
-    save_avg speed_avg, gust_avg, direction_avg, @hours_before_min unless speed_avg.nil?
   end
 
-  def save_avg speed, gust, direction, date
-    WindAvg.create!(speed: speed, gust: gust, direction: direction, registered_date: date) unless WindAvg.exists?(registered_date: date)
+  def create_norden_avg
+    speed_avg = avg_by(:speed)
+    gust_avg = wind_logs.average(:gust).to_f
+    direction_avg = wind_logs.average(:direction).to_f
+    source = 'norden'
+
+    save_avg speed_avg, gust_avg, direction_avg, @hours_before_min, source unless speed_avg.nil?
+  end
+
+  def create_windguru_avg
+    wind_log = windguru_logs.where('extract(hour from registered_date) = ?', @hours_before_min.hour).first
+    speed_avg = wind_log.speed unless wind_log.nil?
+    gust_avg = wind_log.gust unless wind_log.nil?
+    direction_avg = wind_log.direction unless wind_log.nil?
+    source = 'windguru'
+
+    save_avg speed_avg, gust_avg, direction_avg, @hours_before_min, source unless speed_avg.nil?
+  end
+
+  def save_avg speed, gust, direction, date, source
+    WindAvg.create!(
+        speed: speed,
+        gust: gust,
+        direction: direction,
+        registered_date: date,
+        source: source
+    ) unless WindAvg.exists?(registered_date: date)
   end
 
   def rounded_time previous_hours

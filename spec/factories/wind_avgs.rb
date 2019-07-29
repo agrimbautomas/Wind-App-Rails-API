@@ -7,6 +7,7 @@
 #  gust            :float
 #  direction       :float            not null
 #  registered_date :datetime
+#  source          :string
 #
 
 FactoryBot.define do
