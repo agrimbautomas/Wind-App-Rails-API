@@ -118,4 +118,49 @@ RSpec.describe WindLog, type: :model do
 
   end
 
+
+  describe '#serialized' do
+    let(:speed) { 10.2 }
+    let(:gust) { 14.1 }
+    let(:direction) { 108.6 }
+    let(:registered_date) { Time.now }
+    include_context 'create norden'
+
+    context 'a norden log' do
+
+      context 'with standard parameters' do
+        it { expect(create_wind_log.speed_modified).to eq(8.2) }
+        it { expect(create_wind_log.gust_modified).to eq(12.1) }
+      end
+
+      context 'with minimum wind parameters' do
+        let(:speed) { 0.6 }
+        let(:gust) { 1.1 }
+
+        it{ expect(create_wind_log.speed_modified).to eq(0.6) }
+        it { expect(create_wind_log.gust_modified).to eq(1.1) }
+      end
+    end
+
+    context 'a windguru log' do
+      include_context 'create windguru'
+
+      context 'with standard parameters' do
+        it { expect(create_wind_log.speed_modified).to eq(10.2) }
+        it { expect(create_wind_log.gust_modified).to eq(14.1) }
+      end
+
+      context 'with minimum wind parameters' do
+        let(:speed) { 0.6 }
+        let(:gust) { 1.1 }
+
+        it{ expect(create_wind_log.speed_modified).to eq(0.6) }
+        it { expect(create_wind_log.gust_modified).to eq(1.1) }
+      end
+
+    end
+
+  end
+
+
 end
