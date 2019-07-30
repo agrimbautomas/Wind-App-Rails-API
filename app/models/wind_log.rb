@@ -32,11 +32,20 @@ class WindLog < ApplicationRecord
   end
 
   def speed_modified
-    station == norden ? speed + NORDEN_DEVIATION : speed
+    if station == norden and speed > NORDEN_DEVIATION
+      speed - NORDEN_DEVIATION
+    else
+      speed
+    end
   end
 
   def gust_modified
-    station == norden ? gust + NORDEN_DEVIATION : gust
-	end
+    # Take speed as params since gust cannot be lower than speed
+    if station == norden and speed > NORDEN_DEVIATION
+      gust - NORDEN_DEVIATION
+    else
+      gust
+    end
+  end
 
 end

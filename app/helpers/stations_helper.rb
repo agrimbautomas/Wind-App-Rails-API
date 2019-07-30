@@ -1,5 +1,5 @@
 module StationsHelper
-	NORDEN_DEVIATION = -2
+	NORDEN_DEVIATION = 2
 
 	def norden
 		Station.find_by_slug('norden')
