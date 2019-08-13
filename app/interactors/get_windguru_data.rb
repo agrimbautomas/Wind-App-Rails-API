@@ -59,6 +59,7 @@ class GetWindguruData < Interactor
     @intent_day_counter += 1 if @intents_counter == 4
     @intent_hour_counter = @intents_counter == 4 ? 0 : @intent_hour_counter += 1
 
+    
     match
   end
 
